@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}Restaurants{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+
+      <h1>All Cafes</h1>
+
+	  <table class="table table-dark table-striped table-hover">
+        <tr>
+          <td>Cafe Name</td>
+          <td>Location</td>
+          <td>Opening Time</td>
+          <td>Closing Time</td>
+          <td>Coffee Rating</td>
+          <td>WiFi Rating</td>
+          <td>Power Rating</td>
+        </tr>
+        {% for cafe in cafes %}
+          <tr>
+            <td>{{ cafe.name }}</td>
+            <td><a href="{{ cafe.location }}">Map Link</a></td>
+            <td>{{ cafe.opening_time }}</td>
+            <td>{{ cafe.closing_time }}</td>
+            <td>{{ cafe.coffee }}</td>
+            <td>{{ cafe.wifi }}</td>
+            <td>{{ cafe.power }}</td>
+          </tr>
+        {% endfor  %}
+  	  </table>
+
+      <p><a href="{{ url_for('main.index') }}">Return to index page</a></p>
+
+    </div>
+  </div>
+</div>
+{% endblock %}
